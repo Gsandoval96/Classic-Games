@@ -17,32 +17,97 @@ public class Controller implements InputProcessor {
     public boolean keyDown (int keycode) {
         switch(keycode){
             case Input.Keys.A:
-                if(Lgame.turno) Lgame.p1.move(-1,0);
-                else Lgame.p2.move(-1,0);
+                if(Lgame.turno){ 
+                    if(!Lgame.turnoC)Lgame.p1.move(-1,0);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(-1, 0);
+                        else Lgame.s2.move(-1, 0);                               
+                    }
+                    
+                }           
+                else{ 
+                    if(!Lgame.turnoC)Lgame.p2.move(-1,0);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(-1, 0);
+                        else Lgame.s2.move(-1, 0);                               
+                    }
+                }
             break;
             case Input.Keys.D:
-                if(Lgame.turno) Lgame.p1.move(1,0);
-                else Lgame.p2.move(1,0);
+                if(Lgame.turno){ 
+                    if(!Lgame.turnoC)Lgame.p1.move(1,0);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(1, 0);
+                        else Lgame.s2.move(1, 0);                               
+                    }
+                }           
+                else{ 
+                    if(!Lgame.turnoC)Lgame.p2.move(1,0);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(1, 0);
+                        else Lgame.s2.move(1, 0);                               
+                    }
+                }
             break;
             case Input.Keys.S:
-                if(Lgame.turno) Lgame.p1.move(0,-1);
-                else Lgame.p2.move(0,-1);
+                if(Lgame.turno){ 
+                    if(!Lgame.turnoC)Lgame.p1.move(0,-1);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(0,-1);
+                        else Lgame.s2.move(0,-1);                               
+                    }
+                }           
+                else{ 
+                    if(!Lgame.turnoC)Lgame.p2.move(0,-1);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(0,-1);
+                        else Lgame.s2.move(0,-1);                               
+                    }
+                }
             break;
             case Input.Keys.W:
-                if(Lgame.turno) Lgame.p1.move(0,1);
-                else Lgame.p2.move(0,1);
+                if(Lgame.turno){ 
+                    if(!Lgame.turnoC)Lgame.p1.move(0,1);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(0,1);
+                        else Lgame.s2.move(0,1);                               
+                    }
+                }           
+                else{ 
+                    if(!Lgame.turnoC)Lgame.p2.move(0,1);
+                    else{
+                        if(Lgame.c1) Lgame.s1.move(0,1);
+                        else Lgame.s2.move(0,1);                               
+                    }
+                }
             break;
             case Input.Keys.E:
-                if(Lgame.turno) Lgame.p1.turnLeft();
-                else Lgame.p2.turnLeft();
+                if(!Lgame.turnoC){
+                    if(Lgame.turno) Lgame.p1.turnLeft();
+                    else Lgame.p2.turnLeft();
+                }
             break;
             case Input.Keys.Q:
-                if(Lgame.turno) Lgame.p1.turnRight();
-                else Lgame.p2.turnRight();
+                if(!Lgame.turnoC){
+                    if(Lgame.turno) Lgame.p1.turnRight();
+                    else Lgame.p2.turnRight();
+                }
             break;
             
             case Input.Keys.SPACE:
-                Lgame.turno = !Lgame.turno;
+                if(Lgame.turno){
+                    if(Lgame.turnoC){ Lgame.turno = false; Lgame.turnoC = false;}
+                    else Lgame.turnoC = true;
+                }
+                else{
+                    if(Lgame.turnoC){ Lgame.turno = true; Lgame.turnoC = false;}
+                    else Lgame.turnoC = true;
+                }
+                    
+            break;
+            
+            case Input.Keys.C:
+                Lgame.c1 = !Lgame.c1;             
             break;
         }
         return false;

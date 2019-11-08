@@ -12,19 +12,32 @@ public class Lgame extends ApplicationAdapter {
         static Piece p1;
         static Piece p2;
         static boolean turno;
+        static boolean turnoC;
+        static boolean c1;
+        static Square s1;
+        static Square s2;
         Controller controls;
 	
 	@Override
 	public void create () {
 		shp = new ShapeRenderer();
+                
                 b = new Board();
+                
                 p1 = new Piece(2,2,Color.RED);
+                
                 p2 = new Piece(2,2,Color.BLUE);
                 p2.turnRight();
                 p2.turnRight();
                 p2.move(1, 1);
                 
+                s1 = new Square(1,1);
+                s2 = new Square(4,4);
+                
+                c1 = true;
+                
                 turno = true;
+                turnoC = false;
                 
                 controls = new Controller();
 	}
@@ -39,6 +52,9 @@ public class Lgame extends ApplicationAdapter {
                 b.draw(shp);
                 p1.draw(shp);
                 p2.draw(shp);
+                
+                s1.draw(shp);
+                s2.draw(shp);
 	}
 	
 	@Override

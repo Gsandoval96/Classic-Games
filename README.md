@@ -1,11 +1,12 @@
-# Classic-Games
+# L game
 
-Este proyecto consiste en una colección de juegos clásicos. Actualmente cuenta con:
+**Número de jugadores:** 2 jugadores
 
-- **L game** - (Pre-released v1.0)
-- **Tetris** - (En fase de desarrollo)
-- **Tron** - (Proyecto futuro)
-- **Asteroids** - (Proyecto futuro)
-- **Space Invaders** - (Proyecto futuro)
-- **Super Pang** - (Proyecto futuro)
-- **Brick Breaker** - (Proyecto futuro)
+## Controles
+
+**Teclas WASD:** mover la pieza o cuadrado.
+**Tecla Q:** rotar la pieza a la izquierda.
+**Tecla E:** rotar la pieza a la derecha.
+**Tecla ESPACIO:** fijar pieza y pasar turno.
+**Teclas 1,2:** seleccionar cuadrado. (1 = cuadrado negro, 2 = cuadrado marrón)
+

@@ -148,6 +148,11 @@ public class Controller implements InputProcessor {
             case Input.Keys.C:
                 Lgame.c1 = !Lgame.c1;             
             break;
+            
+            case Input.Keys.F:
+                if(Lgame.turno) Lgame.p1.flip();
+                else Lgame.p2.flip();
+            break;
         }
         return false;
     }

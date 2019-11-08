@@ -25,8 +25,12 @@ public class Piece {
     
     private boolean update;
     
+    private char status;
+    
     private void initialize(){
-
+        
+        status = 'v';
+        
         perifs_pos.add(new Coord(0,1));
         perifs_pos.add(new Coord(1,-1));
         perifs_pos.add(new Coord(0,-1));    
@@ -99,6 +103,10 @@ public class Piece {
     
     public void turnRight(){
         Coord aux;
+        
+        if(status=='v') status = 'h';
+        else status = 'v';
+        
         for(Coord c:perifs_pos){
             aux = new Coord(-c.y,c.x);
             c.setCoord(aux);
@@ -108,9 +116,26 @@ public class Piece {
     
     public void turnLeft(){
         Coord aux;
+        
+        if(status=='v') status = 'h';
+        else status = 'v';
+        
         for(Coord c:perifs_pos){
             aux = new Coord(c.y,-c.x);
             c.setCoord(aux);
+        }
+        update = true;
+    }
+    
+    public void flip(){
+        for(Coord c:perifs_pos){
+            if(c.x!=0 && c.y!=0){
+                if(status == 'v')
+                    c.setX(-c.getX());
+                else 
+                    c.setY(-c.getY());
+            }
+            System.out.println("Haciendo flip");
         }
         update = true;
     }

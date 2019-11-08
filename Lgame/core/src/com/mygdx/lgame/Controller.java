@@ -21,7 +21,7 @@ public class Controller implements InputProcessor {
                     if(!Lgame.turnoC)Lgame.p1.move(-1,0);
                     else{
                         if(Lgame.c1) Lgame.s1.move(-1, 0);
-                        else Lgame.s2.move(-1, 0);                               
+                        else if(Lgame.c2) Lgame.s2.move(-1, 0);                               
                     }
                     
                 }           
@@ -29,7 +29,7 @@ public class Controller implements InputProcessor {
                     if(!Lgame.turnoC)Lgame.p2.move(-1,0);
                     else{
                         if(Lgame.c1) Lgame.s1.move(-1, 0);
-                        else Lgame.s2.move(-1, 0);                               
+                        else if(Lgame.c2) Lgame.s2.move(-1, 0);                               
                     }
                 }
             break;
@@ -38,14 +38,14 @@ public class Controller implements InputProcessor {
                     if(!Lgame.turnoC)Lgame.p1.move(1,0);
                     else{
                         if(Lgame.c1) Lgame.s1.move(1, 0);
-                        else Lgame.s2.move(1, 0);                               
+                        else if(Lgame.c2) Lgame.s2.move(1, 0);                               
                     }
                 }           
                 else{ 
                     if(!Lgame.turnoC)Lgame.p2.move(1,0);
                     else{
                         if(Lgame.c1) Lgame.s1.move(1, 0);
-                        else Lgame.s2.move(1, 0);                               
+                        else if(Lgame.c2) Lgame.s2.move(1, 0);                               
                     }
                 }
             break;
@@ -54,14 +54,14 @@ public class Controller implements InputProcessor {
                     if(!Lgame.turnoC)Lgame.p1.move(0,-1);
                     else{
                         if(Lgame.c1) Lgame.s1.move(0,-1);
-                        else Lgame.s2.move(0,-1);                               
+                        else if(Lgame.c2) Lgame.s2.move(0,-1);                               
                     }
                 }           
                 else{ 
                     if(!Lgame.turnoC)Lgame.p2.move(0,-1);
                     else{
                         if(Lgame.c1) Lgame.s1.move(0,-1);
-                        else Lgame.s2.move(0,-1);                               
+                        else if(Lgame.c2) Lgame.s2.move(0,-1);                               
                     }
                 }
             break;
@@ -70,14 +70,14 @@ public class Controller implements InputProcessor {
                     if(!Lgame.turnoC)Lgame.p1.move(0,1);
                     else{
                         if(Lgame.c1) Lgame.s1.move(0,1);
-                        else Lgame.s2.move(0,1);                               
+                        else if(Lgame.c2) Lgame.s2.move(0,1);                               
                     }
                 }           
                 else{ 
                     if(!Lgame.turnoC)Lgame.p2.move(0,1);
                     else{
                         if(Lgame.c1) Lgame.s1.move(0,1);
-                        else Lgame.s2.move(0,1);                               
+                        else if(Lgame.c2) Lgame.s2.move(0,1);                               
                     }
                 }
             break;
@@ -114,9 +114,12 @@ public class Controller implements InputProcessor {
                             if(!Lgame.p1.overlap(Lgame.p2) && 
                                !Lgame.p1.overlap(Lgame.s1) &&
                                !Lgame.p1.overlap(Lgame.s2) &&
-                                Lgame.p1.isOn(Lgame.b))
-                            Lgame.turnoC = true;
-                        
+                                Lgame.p1.isOn(Lgame.b)){
+                                
+                                Lgame.turnoC = true; 
+                                Lgame.c1 = false;
+                                Lgame.c2 = false;
+                            }
                     }
                 }
                 else{
@@ -137,21 +140,28 @@ public class Controller implements InputProcessor {
                             if(!Lgame.p2.overlap(Lgame.p1) && 
                                !Lgame.p2.overlap(Lgame.s1) &&
                                !Lgame.p2.overlap(Lgame.s2) &&
-                                Lgame.p2.isOn(Lgame.b))
+                                Lgame.p2.isOn(Lgame.b)){
                                     
-                                Lgame.turnoC = true;    
+                                Lgame.turnoC = true;   
+                                Lgame.c1 = false;
+                                Lgame.c2 = false;
+                            }
                     }
                 }
                     
             break;
             
-            case Input.Keys.C:
-                Lgame.c1 = !Lgame.c1;             
-            break;
-            
             case Input.Keys.F:
                 if(Lgame.turno) Lgame.p1.flip();
                 else Lgame.p2.flip();
+            break;
+            
+            case Input.Keys.NUM_1:
+                if(Lgame.turnoC && !Lgame.c2) Lgame.c1 = true;
+            break;
+            
+            case Input.Keys.NUM_2:
+                if(Lgame.turnoC && !Lgame.c1) Lgame.c2 = true;
             break;
         }
         return false;

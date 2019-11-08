@@ -14,6 +14,7 @@ public class Lgame extends ApplicationAdapter {
         static boolean turno;
         static boolean turnoC;
         static boolean c1;
+        static boolean c2;
         static Square s1;
         static Square s2;
         Controller controls;
@@ -31,10 +32,11 @@ public class Lgame extends ApplicationAdapter {
                 p2.turnRight();
                 p2.move(1, 1);
                 
-                s1 = new Square(1,1);
-                s2 = new Square(4,4);
+                s1 = new Square(1,1,Color.BLACK);
+                s2 = new Square(4,4,Color.BROWN);
                 
-                c1 = true;
+                c1 = false;
+                c2 = false;
                 
                 turno = true;
                 turnoC = false;

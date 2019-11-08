@@ -101,6 +101,8 @@ public class Controller implements InputProcessor {
                                !Lgame.p1.overlap(Lgame.s2) &&
                                !Lgame.p2.overlap(Lgame.s1) &&
                                !Lgame.p2.overlap(Lgame.s2) &&    
+                               Lgame.b.hasInside(Lgame.s1) &&
+                               Lgame.b.hasInside(Lgame.s2) &&  
                                !Lgame.s1.overlap(Lgame.s2.getCoord()))
                             {
                                 Lgame.turno = false; 
@@ -111,7 +113,8 @@ public class Controller implements InputProcessor {
                     else{ 
                             if(!Lgame.p1.overlap(Lgame.p2) && 
                                !Lgame.p1.overlap(Lgame.s1) &&
-                               !Lgame.p1.overlap(Lgame.s2))
+                               !Lgame.p1.overlap(Lgame.s2) &&
+                                Lgame.p1.isOn(Lgame.b))
                             Lgame.turnoC = true;
                         
                     }
@@ -121,7 +124,9 @@ public class Controller implements InputProcessor {
                             if(!Lgame.p1.overlap(Lgame.s1) &&
                                !Lgame.p1.overlap(Lgame.s2) &&
                                !Lgame.p2.overlap(Lgame.s1) &&
-                               !Lgame.p2.overlap(Lgame.s2) &&    
+                               !Lgame.p2.overlap(Lgame.s2) &&
+                               Lgame.b.hasInside(Lgame.s1) &&
+                               Lgame.b.hasInside(Lgame.s2) &&  
                                !Lgame.s1.overlap(Lgame.s2.getCoord()))
                             {
                                 Lgame.turno = true; 
@@ -131,7 +136,9 @@ public class Controller implements InputProcessor {
                     else{ 
                             if(!Lgame.p2.overlap(Lgame.p1) && 
                                !Lgame.p2.overlap(Lgame.s1) &&
-                               !Lgame.p2.overlap(Lgame.s2))
+                               !Lgame.p2.overlap(Lgame.s2) &&
+                                Lgame.p2.isOn(Lgame.b))
+                                    
                                 Lgame.turnoC = true;    
                     }
                 }

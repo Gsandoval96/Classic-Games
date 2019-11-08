@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Lgame extends ApplicationAdapter {
 	ShapeRenderer shp;
-        Board b;
+        static Board b;
         static Piece p1;
         static Piece p2;
         static boolean turno;

@@ -145,4 +145,15 @@ public class Piece {
         
         return overlaps;
     }
+    
+    public boolean isOn(Board b){
+        boolean isOn = true;
+            
+        if(!b.hasInside(center)) isOn = false;
+        
+        for(Square perif:perifs)
+            if(!b.hasInside(perif)) isOn = false;
+        
+        return isOn;
+    }
 }

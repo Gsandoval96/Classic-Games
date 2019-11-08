@@ -54,6 +54,16 @@ public class Board {
             s.draw(shp);
     }
     
+    public boolean hasInside(Square s){
+        boolean isInside = false;
+            
+            if(s.getPosX()>= pos.x && s.getPosX() <= pos.x + sizeX -1 &&
+               s.getPosY()>= pos.y && s.getPosY() <= pos.y + sizeY -1)
+            isInside = true;
+        
+        return isInside;
+    }
+    
     
     
 }

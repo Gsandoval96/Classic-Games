@@ -2,32 +2,47 @@ package com.mygdx.lgame;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Lgame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+	ShapeRenderer shp;
+        Board b;
+        static Piece p1;
+        static Piece p2;
+        static boolean turno;
+        Controller controls;
 	
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		shp = new ShapeRenderer();
+                b = new Board();
+                p1 = new Piece(2,2,Color.RED);
+                p2 = new Piece(2,2,Color.BLUE);
+                p2.turnRight();
+                p2.turnRight();
+                p2.move(1, 1);
+                
+                turno = true;
+                
+                controls = new Controller();
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		
+                Gdx.input.setInputProcessor(controls);
+                
+                b.draw(shp);
+                p1.draw(shp);
+                p2.draw(shp);
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		shp.dispose();
 	}
 }

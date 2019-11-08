@@ -96,12 +96,32 @@ public class Controller implements InputProcessor {
             
             case Input.Keys.SPACE:
                 if(Lgame.turno){
-                    if(Lgame.turnoC){ Lgame.turno = false; Lgame.turnoC = false;}
-                    else Lgame.turnoC = true;
+                    if(Lgame.turnoC){
+                            
+                            Lgame.turno = false; 
+                            Lgame.turnoC = false;
+                        
+                    }
+                    else{ 
+                            if(!Lgame.p1.overlap(Lgame.p2) && 
+                               !Lgame.p1.overlap(Lgame.s1) &&
+                               !Lgame.p1.overlap(Lgame.s2))
+                            Lgame.turnoC = true;
+                        
+                    }
                 }
                 else{
-                    if(Lgame.turnoC){ Lgame.turno = true; Lgame.turnoC = false;}
-                    else Lgame.turnoC = true;
+                    if(Lgame.turnoC){ 
+                            Lgame.turno = true; 
+                            Lgame.turnoC = false;
+                        
+                    }
+                    else{ 
+                            if(!Lgame.p2.overlap(Lgame.p1) && 
+                               !Lgame.p2.overlap(Lgame.s1) &&
+                               !Lgame.p2.overlap(Lgame.s2))
+                                Lgame.turnoC = true;    
+                    }
                 }
                     
             break;

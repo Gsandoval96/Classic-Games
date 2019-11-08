@@ -123,5 +123,26 @@ public class Piece {
             update = false;
         }
     }
+    
+    public boolean overlap(Square s){
+        boolean overlaps = false;
+        
+        if(center.overlap(s.getCoord())) overlaps = true;
+        
+        for(Square perif:perifs)
+            if(perif.overlap(s.getCoord())) overlaps = true;
+        
+        return overlaps;
+    }
    
+    public boolean overlap(Piece p){
+        boolean overlaps = false;
+        
+        if(this.overlap(p.getCenter())) overlaps = true;
+        
+        for(Square perif:p.getPerifs())
+             if(this.overlap(perif)) overlaps = true;
+        
+        return overlaps;
+    }
 }

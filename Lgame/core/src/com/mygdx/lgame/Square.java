@@ -35,6 +35,12 @@ public class Square {
         pos = new Coord(a,b);
         color = c;
     }
+    
+    public boolean overlap(Coord c){
+        boolean overlaps = false;
+        if(pos.x == c.x && pos.y == c.y) overlaps = true;
+        return overlaps;
+    }
 
     public int getPosX() {
         return pos.x;
@@ -46,6 +52,10 @@ public class Square {
 
     public int getPosY() {
         return pos.y;
+    }
+    
+    public Coord getCoord(){
+        return pos;
     }
 
     public void setPosY(int posY) {

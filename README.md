@@ -4,6 +4,7 @@ Este proyecto consiste en una colección de juegos clásicos. Actualmente cuenta
 
 - **L game** - (Pre-released v1.0) - https://github.com/Gsandoval96/Classic-Games/tree/Lgame
 - **Tetris** - (En fase de desarrollo) - https://github.com/Gsandoval96/Classic-Games/tree/Tetris
+- **Chain Reaction** - (En fase de desarrollo) - https://github.com/Gsandoval96/Classic-Games/tree/ChainReaction
 - **Tron** - (Proyecto futuro)
 - **Asteroids** - (Proyecto futuro)
 - **Space Invaders** - (Proyecto futuro)
